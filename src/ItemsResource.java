@@ -8,6 +8,7 @@ public class ItemsResource extends ServerResource {
     @Get("application/json")
     public Representation toJson() {
         try {
+            StarterApplication.addCORSHeader(getResponse());
             JSONObject json = new JSONObject();
             json.put("items", new JSONObject(StarterApplication.items));
             return StarterApplication.getJsonRepresentation(json);
