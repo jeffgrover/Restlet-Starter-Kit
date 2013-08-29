@@ -17,6 +17,7 @@ public class ItemResource extends ServerResource {
     }
 
     @Put
+    @Options    //  FOR CORS
     public Representation modifyItem(String jsonString) {
         try {
             StarterApplication.addCORSHeader(getResponse());
@@ -37,6 +38,7 @@ public class ItemResource extends ServerResource {
     }
 
     @Delete
+    @Options    //  FOR CORS
     public Representation removeItem() {
         StarterApplication.addCORSHeader(getResponse());
         if (!StarterApplication.items.containsKey(id)) {
